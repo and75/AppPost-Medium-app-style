@@ -1,4 +1,7 @@
 # AppPost
+This application is a FrontEnd case study for Medium app style based on LAMP (Elgg Framework) Backend and Angular Frontend. 
+
+On this project i use Bootstrap 4 and Sass. The project is not completed
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
 

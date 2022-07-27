@@ -1,0 +1,27 @@
+<div class="card-body app-article-comments px-md-5">
+    <h4 class="mb-5">Comments</h4>
+    <div *ngIf="comments" class="app-article-comments-list">
+        <div class="media border-bottom pb-3 mb-3"  *ngFor="let comment of comments">
+            <img src="../assets/img/avatar.png" width="30" height="30" class="mr-3" alt=""  loading="lazy">
+            <div class="media-body">
+                <p class="app-comments-infos small font-weight-lighter m-0">{{comment.time_created}} / {{comment.owner.username}}</p>
+                <p class="ucfirst mx-0 mt-2">{{comment.content}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="app-article-comments-form mt-4">
+        <form (ngSubmit)="onSubmit()">
+            <div class="media">
+                <img src="../assets/img/avatar-logged.png" width="30" height="30" class="mr-3" alt=""  loading="lazy">
+                <div class="media-body">
+                    <div class="form-group">
+                       <textarea class="form-control" id="comment-body" name="comment-body" rows="3" [(ngModel)]="comment.body" (focus)="clearTextArea($event)"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group text-right">
+                <button class="btn btn-primary" type="submit">Comment</button>
+            </div> 
+        </form>
+    </div>
+</div>

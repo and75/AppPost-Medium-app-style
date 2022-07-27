@@ -1,0 +1,55 @@
+<app-nav-bar></app-nav-bar>
+<app-nav-bar></app-nav-bar>
+<div class="container-fluid app-main app-home">
+    <div class="row justify-content-center">
+        <div class="col-md-6 border-right">
+            <div class="app-post-widget mt-3 pt-2 pb-3">
+                <div class="card border-0">
+                    <div class="card-header border-bottom-0 bg-white">
+                        <div class="row">
+                            <div class="col-12">
+                                <h2 class="">{{title}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body ">
+                        <div class="app-post-result">
+                            <div class="media border-top pt-4 mb-4 mr-2" *ngFor="let post of posts">
+                                <img src="../assets/img/avatar.png" class="mr-3" width="30" alt="" loading="lazy">
+                                <div class="media-body">
+                                    <h6 class="mt-0 ucfirst app-link" (click)="goToPost(post)">{{post.title}}</h6>
+                                    <div class="small">{{post.time_created}} by {{post.owner.username}} / Comments
+                                        ({{post.comments}}) / Likes ({{post.likes}}) / Loves ({{post.loves}}) / Ideas
+                                        ({{post.ideas}})</div>
+                                    <div class="mt-2 mb-2">
+                                        <app-tags-view [tags]='post.tags'></app-tags-view>
+                                    </div>
+                                    {{post.excerpt}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="app-post-widget mt-3 pt-3 pb-3" *ngIf="contributors">
+                <div class="card border-0">
+                    <div class="card-header border-0 border-bottom" style="background:white">
+                        <h4 class="">Contributors</h4>
+                    </div>
+                    <div class="card-body border-0">
+                        <div class="media border-top pt-4 mb-4" *ngFor="let user of contributors">
+                            <img src="../assets/img/avatar.png" class="mr-3" width="30" alt="" loading="lazy">
+                            <div class="media-body">
+                                <h5 class="mt-0 ucfirst app-link" (click)="goToPost(post)"> {{user.username}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

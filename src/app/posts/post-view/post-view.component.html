@@ -1,0 +1,30 @@
+<app-nav-bar></app-nav-bar>
+<div class="container-fluid app-main app-post-view">
+    <div class="row">
+        <div class="col-md-7 pr-md-0 border-right overflow-auto scroll-area" style="height:90vh;">
+            <div class="mt-4 pb-4 border-bottom-1">
+                <div class="card border-0 " *ngIf="post">
+                    <app-actions-menu [post]='post'></app-actions-menu>
+                    <div class="card-header border-bottom-0 bg-white pl-md-5 pr-md-5">
+                      <h1 class="ucfirst col-10 p-0">{{post.title}}</h1>
+                      <h6>Author: {{post.owner.name}} / Published at {{post.time_created}} </h6>
+                      <div class="mt-3"><app-tags-view [tags]='post.tags' ></app-tags-view></div>
+                    </div>
+                    <div class="card-body px-md-5 pb-md-0">
+                      <p class="card-text">{{post.content}}</p>
+                    </div>  
+                    <app-social-menu [post]='post'></app-social-menu>
+                    <app-comments [entity]='post'></app-comments>
+                  </div>
+            </div>
+        </div>
+        <div class="col-md-5 px-sm-5">
+            <div *ngIf="post" class="mt-4 pb-4 border-bottom-1 overflow-auto" >
+               <app-owner-block [owner]='owner'></app-owner-block>
+               <app-post-list [owner]='owner'></app-post-list>
+            </div>
+        </div>
+    </div>
+</div>
+
+

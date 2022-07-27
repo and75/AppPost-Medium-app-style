@@ -1,0 +1,16 @@
+<div class="app-post-list">
+    <div class="mt-4 pt-2 pb-2" style="border-bottom:1px solid #ccc">
+        <h5 class="">{{title}}</h5>
+    </div>
+    <div class="p-3 overflow-auto app-post-result scrolling" style="height:60vh;">
+        <div class="media border-bottom pb-4 mb-4" *ngFor="let post of posts">
+            <img src="../assets/img/avatar.png" class="mr-3" alt="" loading="lazy">
+            <div class="media-body">
+                <h6 class="mt-0 ucfirst app-link" (click)="goToPost(post)">{{post.title}}</h6>
+                <div class="small">{{post.time_created}}  by {{post.owner.username}} / Comments ({{post.comments}}) / Likes ({{post.likes}}) / Loves ({{post.loves}}) / Ideas ({{post.ideas}})</div>
+                <div class="mt-1 mb-2"> <app-tags-view [tags]='post.tags'></app-tags-view></div>
+                <div class="app-text-excerpt">{{post.excerpt}}</div>
+            </div>
+        </div>
+    </div>
+</div>

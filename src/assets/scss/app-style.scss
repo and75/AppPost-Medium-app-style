@@ -1,0 +1,176 @@
+/**
+ * AppPost
+ * "Medium" style application
+ * Bootstrap 4.x sass style
+ * by Andrea Porcella 2021
+ */
+ 
+/*SCROOL BAR*/
+/* width */
+::-webkit-scrollbar {
+    width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(158, 158, 158);   
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(0, 0, 0);
+}
+
+.app-main {
+    padding-top: 4rem;
+}
+.app-post-search {
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 7px;
+}
+.app-text-excerpt{
+    font-size:90%;
+}
+
+/*AUTENTICATION*/
+.auth-body {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+    height: 100vh;
+}
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+    height: 80vh;
+}
+.form-signin .btn-secondary:not(:disabled):not(.disabled):active,
+.form-signin .btn-secondary:not(:disabled):not(.disabled).active,
+.form-signin .show > .btn-secondary.dropdown-toggle {
+    background: $white;
+    border-color: $white;
+    color: $gray-900;
+}
+
+/*PRIVATE AREA*/
+.navbar {
+    box-shadow: 0px 0px 6px #545b62;
+    z-index: 100;
+}
+
+/*PAGE 404*/
+.app-404-body {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+    height: 100vh;
+}
+.app-404-container {
+    width: 100%;
+    padding: 15px;
+    margin: auto;
+    max-width: 496px;
+}
+
+/*HOME*/
+.app-home .app-post-search {
+    margin-top: 30px;
+}
+.app-home .scroll-area {
+    height: auto !important;
+}
+.app-home .media-body h6 {
+    font-size: 1.3rem !important;
+}
+.app-home .media img {
+    width: 30px;
+    height: 30px;
+}
+
+/*POST VIEW*/
+.app-post-view .app-post-list h2 {
+    font-size: 1.5rem;
+}
+.app-post-view .media img {
+    width: 30px;
+    height: 30px;
+}
+.app-post-view .media img {
+    width: 30px;
+    height: 30px;
+}
+.app-post-view .scroll-area {
+    height: 70vh;
+}
+
+/*EDT POST COMPONENT*/
+.ck-editor__editable_inline {
+    min-height: 30vh;
+}
+.ucfirst:first-letter {
+    text-transform: uppercase;
+}
+.app-link {
+    cursor: pointer;
+    color: $link-color;
+    text-decoration: $link-decoration;
+    background-color: transparent; // Remove the gray background on active links in IE 10.
+}
+.app-link:hover {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+}
+
+/*OWNER BLOCK*/
+.owner-block .app-social-actions {
+    padding: 0 !important;
+}
+.owner-block .app-social-actions ul.nav {
+    justify-content: flex-start !important;
+}
+.owner-block .app-social-actions .nav-link  {
+    display: block;
+    padding: 0.5rem;
+}
+.owner-block .app-social-actions img {
+    width: 15px;
+    height: 15px;
+}
+
+/*Search*/
+.app-result-search{
+    position: absolute;
+    width: 80%;
+}
+
+/*Tag*/
+.btn-tag, 
+.btn-group-tag > .btn {
+    padding: 0.15rem 0.6rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 3px !important;
+}
+.app-post-list .btn-tag, 
+.app-post-list .btn-group-tag > .btn {
+    padding: 0rem 0.15rem;
+    font-size: 0.675rem;
+    line-height: 1.5;
+    border-radius: 3px !important;
+}

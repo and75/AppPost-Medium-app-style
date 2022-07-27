@@ -1,0 +1,106 @@
+<app-nav-bar></app-nav-bar>
+<div class="container-fluid app-main app-home">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="app-post-widget mt-3 pt-3 pb-3 ">
+                <div class="card border-0">
+                    <div class="card-header border-bottom-0 bg-white">
+                        <div class="row">
+                            <div class="col-10">
+                                <h2 class="">{{title}}</h2>
+                            </div>
+                            <div class="col-2">
+                                <ul class="nav justify-content-end">
+                                    <li class="nav-item">
+                                        <a href="/post/add" class="nav-link px-0">
+                                            <img src="../assets/img/add.png" width="25" data-toggle="tooltip"
+                                                data-placement="top" title="Create new post">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body ">
+                        <div class="overflow-auto app-post-result scrolling" style="height:70vh;">
+                            <div class="media border-bottom pb-4 mb-4 mr-2" *ngFor="let post of posts">
+                                <img src="../assets/img/avatar.png" class="mr-3" width="30" alt="" loading="lazy">
+                                <div class="media-body">
+                                    <h6 class="mt-0 ucfirst app-link" (click)="goToPost(post)">{{post.title}}</h6>
+                                    <div class="small">{{post.time_created}} by {{post.owner.username}} / Comments
+                                        ({{post.comments}}) / Likes ({{post.likes}}) / Loves ({{post.loves}}) / Ideas
+                                        ({{post.ideas}})</div>
+                                    <div class="mt-2 mb-2">
+                                        <app-tags-view [tags]='post.tags'></app-tags-view>
+                                    </div>
+                                    {{post.excerpt}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="app-post-widget mt-3 pt-3 pb-3" *ngIf="mostUsedTags">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="">Most popular tags</h4>
+                    </div>
+                    <div class="card-body">
+                        <div >
+                            <button *ngFor="let tag of mostUsedTags; let i = index" type="button"
+                                class="btn btn-warning btn-tag mb-1 mr-2"># {{tag.tag}} <span
+                                    class="badge badge-light">{{tag.total}}</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="greatsIdeas?.length > 0" class="app-post-widget mt-3 pt-3 pb-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="">Great ideas</h4>
+                    </div>
+                    <div class="card-body p-0">
+                        <ul class="list-group list-group-flush">
+                            <li *ngFor="let post of greatsIdeas" class="list-group-item d-flex justify-content-between align-items-center">
+                                <a (click)="goToPost(post)" class="app-link">{{post.title}}</a> 
+                                <span class="badge badge-secondary badge-pill">{{post.count}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="mostLiked?.length > 0" class="app-post-widget mt-3 pt-3 pb-3">
+                <div class="card ">
+                    <div class="card-header">
+                        <h4 class="">Most liked post</h4>
+                    </div>
+                    <div class="card-body p-0">
+                        <ul class="list-group list-group-flush">
+                            <li *ngFor="let post of mostLiked" class="list-group-item d-flex justify-content-between align-items-center">
+                                <a (click)="goToPost(post)" class="app-link">{{post.title}}</a> 
+                                <span class="badge badge-secondary badge-pill">{{post.count}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="mostLoved?.length > 0" class="app-post-widget mt-3 pt-3 pb-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="">Most loved post</h4>
+                    </div>
+                    <div class="card-body p-0">
+                        <ul class="list-group list-group-flush">
+                            <li *ngFor="let post of mostLoved" class="list-group-item d-flex justify-content-between align-items-center">
+                                <a (click)="goToPost(post)" class="app-link">{{post.title}}</a> 
+                                <span class="badge badge-secondary badge-pill">{{post.count}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

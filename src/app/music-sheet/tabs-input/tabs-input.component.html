@@ -1,0 +1,42 @@
+<style>
+    .tab {
+        font-family: monospace;
+        position: relative;
+    }
+
+    .tab .tab-line {
+        font-family: monospace;
+        position: relative;
+    }
+
+    span .tabs-input {
+        width: 1em !important;
+        height: 1em !important;
+        outline: none !important;
+    }
+
+    .tab span {
+        cursor: pointer;
+        transform: translateY(-25%)
+    }
+</style>
+<div class="form-group">
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+            <button type="button" class="btn btn-secondary" (click)="addRow(false)">Add Tab Line</button>
+        </div>
+    </div>
+    <div class='tab mt-3' *ngIf="musicSheet.length > 0">
+        <ul class="list-inline">
+            <li class="list-inline-item">Click a `-` or `#` to edit</li>
+            <!-- li class="list-inline-item"> / Drag `#`s to rearrange</li -->
+        </ul>
+        <div *ngFor="let section of musicSheet" class="mt-3">
+            <div>Section : <span app-musicsheet-tab>{{section.section}}</span></div>
+            <div>Instrument : <span app-musicsheet-tab>{{section.instrument}}</span></div>
+            <div class="tab-line" *ngFor="let tab of section.tab">
+                {{tab.string}} | <span *ngFor="let point of tab.points" app-musicsheet-tab>{{point}}</span>|
+            </div>
+        </div>
+    </div>
+</div>

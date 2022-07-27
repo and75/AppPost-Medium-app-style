@@ -1,0 +1,16 @@
+<form class="form-inline my-2 my-lg-0">
+    <label class="sr-only" for="inlineFormInputName2">Search by title</label>
+    <input class="form-control mr-sm-2" #searchBox [(ngModel)]="query" id="query" name="query" (keyup)="filter(searchBox.value)" placeholder="Search by title on" autocomplete="off"/>
+    <label class="sr-only" for="inlineFormInputName2">Filter by type</label>
+    <select class="custom-select my-1 mr-sm-2" [(ngModel)]="searchOn" name="searchOn" id="searchOn">
+       <option value="post" selected>Post</option>
+       <option value="tags">Tags</option>
+    </select>
+</form>
+<ul *ngIf="searchedPost$" class="app-result-search list-group">
+    <li *ngFor="let resultEntity of searchedPost$ | async" class="list-group-item">
+        <a class="app-link" (click)="goTo(resultEntity)">
+          <span *ngIf="resultEntity.tag">{{ resultEntity.tag }}</span><span *ngIf="resultEntity.title">{{ resultEntity.title }}</span>
+        </a>
+    </li>
+</ul>

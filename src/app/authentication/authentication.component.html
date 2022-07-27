@@ -1,0 +1,52 @@
+<div class="auth-body">
+    <div class="form-signin text-center">
+      <img class="mb-5" src="../assets/img/magazine.png" alt="" width="72" height="72">
+      <div class="card border-0 accordion" id="auth-accordion">
+        <div class="card-header text-left m-0 p-0 border-0 bg-gray">
+          <div class="btn-group" role="toolbar" aria-label="Autentication menu">
+            <button (click)="tooglePannel('collapseOne')" type="button" [ngClass]="setBtnClasses('collapseOne')" id="headingOne"
+              data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+              aria-controls="collapseOne">Login</button>
+            <button (click)="tooglePannel('collapseTwo')" type="button" [ngClass]="setBtnClasses('collapseTwo')" id="headingTwo"
+              data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+              aria-controls="collapseTwo">Register</button>
+          </div>
+        </div>
+        <div [ngClass]="setPannelClasses('collapseOne')" id="#collapseOne" aria-labelledby="headingOne" data-parent="#auth-accordion">
+          <p><em>{{message}}</em></p>
+          <form id="form-acount" #loginForm="ngForm">
+            <label for="inputEmail" class="mt-1 sr-only">Email address</label>
+            <input type="email" id="app-inputEmail" [(ngModel)]="email" name="email" class="form-control" placeholder="Email address" required=""
+              autofocus="">
+            <label for="inputPassword" class="mt-2 sr-only">Password</label>
+            <input type="password" id="inputPassword" [(ngModel)]="password" name="password" class="form-control mt-2" placeholder="Password" required="">
+            <button (click)="login()"  class="btn btn-lg btn-primary btn-block  mt-4" type="submit">Sign in</button>
+          </form>
+        </div>
+        <div [ngClass]="setPannelClasses('collapseTwo')" id="#collapseTwo" aria-labelledby="headingOne" data-parent="#auth-accordion">
+          <form id="form-acount" #registerForm="ngForm">
+            <div class="form-group">
+              <label for="inputEmail" class="sr-only">Username</label>
+              <input type="email" id="app-Username" class="form-control" placeholder="Username" required="" autofocus="">
+            </div>
+            <div class="form-group">
+              <label for="app-reg-inputEmail" class="sr-only">Email</label>
+              <input type="email" id="app-reg-inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+            </div>
+            <div class="form-group">
+              <label for="app-reg-inputEmail" class="mt-2 sr-only">Password</label>
+              <input type="password" id="app-reg-password" class="form-control" placeholder="Password" required="" autofocus="">
+            </div>
+            <div class="form-group">
+              <label for="app-reg-inputEmail" class="mt-2 sr-only">Confirm password</label>
+              <input type="password" id="app-reg-password-confirm" class="form-control" placeholder="Confirm password" required="" autofocus="">
+            </div>
+            <div class="form-group">
+              <button class="btn btn-lg btn-primary btn-block  mt-4" type="submit">Create account</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <p class="mt-5 mb-3 text-muted">© Andrea Porcella 2020</p>
+    </div>
+  </div>

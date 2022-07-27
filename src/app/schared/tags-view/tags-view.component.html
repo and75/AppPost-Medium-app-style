@@ -1,0 +1,5 @@
+<div *ngIf="tags">
+    <button *ngFor="let tag of tags; let i = index"  (click)="onClick(tag.tag)" type="button" class="btn btn-warning btn-tag mb-1 mr-2">
+        # {{tag.tag}} <span class="badge badge-light">{{tag.total}}</span>
+    </button>
+</div>

@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/scss/functions';
+
+/*Import app variables for the custom bootstrap global style*/
+@import './assets/scss/_app_variables';
+
+/*Import bootstrap core*/
+@import '~bootstrap/scss/bootstrap';
+
+.btn-xs {
+    @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
+}
+
+/*Import toast bootstrap style*/
+@import '~ngx-toastr/toastr-bs4-alert';
+
+/*Import app specific style*/
+@import './assets/scss/app-style';

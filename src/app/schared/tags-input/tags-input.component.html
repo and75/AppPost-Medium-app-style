@@ -1,0 +1,22 @@
+<div class="form-group">
+    <div class="form-group" *ngIf="tags" >
+        <label >Tags <span  *ngIf="tags.length >0">(click to remove) </span></label>
+        <div>
+            <button *ngFor="let name of tags; let i = index" (click)="remove(i)" class="list-group-item" type="button" class="btn btn-secondary btn-tag mb-2 mr-2"># {{name}}</button>
+        </div>
+    </div>
+    <div class="input-group mb-1">
+        <input id="tagquery_{{randomFormId}}" type="text" #tagBox [(ngModel)]="tagquery" name="tagquery" (keyup)="filter(tagBox.value, $event)"
+            placeholder="Write your tags separated by commas" class="form-control" autocomplete="off">
+    </div>
+    <ul *ngIf="results$" class="app-tag-result-search list-group {{popState}}">
+        <li *ngFor="let tag of results$ | async" class="list-group-item">
+            <a class="app-link" (click)="setTag(tag.tag)">
+                # {{ tag.tag }}
+            </a>
+        </li>
+    </ul>
+</div>
+<ul>
+    <li *ngFor="let change of changeLog">{{change}}</li>
+</ul>

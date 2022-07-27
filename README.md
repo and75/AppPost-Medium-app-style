@@ -34,3 +34,8 @@ The demo of frontend is hosted on AWS
 
 http://15.237.91.31/
 
+The backend is hosted on :
+http://app-post-elgg.bsys2.host/
+
+For both applications the guest user is
+User : carlorossi/CRsiTz;45
